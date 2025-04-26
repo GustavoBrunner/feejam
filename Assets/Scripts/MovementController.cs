@@ -20,8 +20,8 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         components.Controller.Move(speed * Time.deltaTime * move.normalized);

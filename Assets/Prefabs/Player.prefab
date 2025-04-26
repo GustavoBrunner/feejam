@@ -133,9 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 5
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 0
   playerCamera: {fileID: 2766139954188007629}
 --- !u!1 &1329006435467014740
 GameObject:
@@ -192,7 +189,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 4488534791640789539}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
