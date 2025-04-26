@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2766139954188007629}
   - component: {fileID: 546124873784272633}
   - component: {fileID: 1018119555117314548}
+  - component: {fileID: 1446050732034298858}
   m_Layer: 0
   m_Name: Main Cam
   m_TagString: Untagged
@@ -119,6 +120,23 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1446050732034298858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289564365908998296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147b867b6e0638547a6d2f3e51fcb7d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerCamera: {fileID: 2766139954188007629}
 --- !u!1 &1329006435467014740
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components: {fileID: 4260739244986360524}
   speed: 5
+  isPushing: 0
 --- !u!1 &4846337669781032523
 GameObject:
   m_ObjectHideFlags: 0

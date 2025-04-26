@@ -1,18 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string Name => gameObject.name;
 
-    // Update is called once per frame
-    void Update()
+    
+
+    void IInteractable.OnInteract()
     {
-        
+        Debug.Log("Interacted");
     }
 }
