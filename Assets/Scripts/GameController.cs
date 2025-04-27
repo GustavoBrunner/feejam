@@ -9,7 +9,14 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get => _instance; }
 
+    private MovementController _movementController;
+
+    public HudController HudControl { get; private set; }
+
     public EventsController Events { get; private set; }
+
+    public GamePhase GamePhase { get; set; } = GamePhase.first;
+
     private void Awake()
     {
         if (_instance == null)
@@ -18,10 +25,14 @@ public class GameController : MonoBehaviour
             DestroyImmediate(this.gameObject);
 
         Events = GetComponent<EventsController>();
+        _movementController = FindObjectOfType<MovementController>();
+        HudControl = FindObjectOfType<HudController>();
+
+        HudControl.ShowRules();
     }
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {
@@ -30,8 +41,18 @@ public class GameController : MonoBehaviour
             Events.StartFloor();
         }
     }
-    public void TestEvent()
+    public void ChangePlayerWalkStatus(bool status = false)
     {
-        Debug.Log("Jogo iniciado");
+        _movementController.SetCanRun(status);
     }
+
+
+
+}
+
+public enum GamePhase
+{
+    first,
+    second,
+    third
 }

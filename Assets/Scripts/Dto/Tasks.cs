@@ -11,7 +11,7 @@ public class Tasks
     public UnityEvent onTaskComplete;
 
     public int objectiveAmount = 1;
-    private int currentAmount = 0;
+    public int currentAmount = 0;
 
     public bool IsCompleted => currentAmount >= objectiveAmount;
 

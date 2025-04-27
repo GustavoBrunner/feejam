@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamRayController : MonoBehaviour
 {
-    public float interactionDistance = 1.5f;
+    public float interactionDistance = 3f;
     
     public Camera playerCamera;
 
@@ -19,11 +19,10 @@ public class CamRayController : MonoBehaviour
 
     private void DetectInteractable()
     {
-        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         Debug.DrawRay(transform.position, transform.forward * interactionDistance, Color.magenta,.5f);
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance))
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 

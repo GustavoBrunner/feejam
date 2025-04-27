@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7691099136474095788}
   - component: {fileID: 5536999958938530476}
   - component: {fileID: -6692620720833327146}
+  - component: {fileID: 5408830660260923527}
   m_Layer: 0
   m_Name: Corredor_andar_12
   m_TagString: Untagged
@@ -222,6 +223,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1551218, y: 0.13198853, z: 2.1139472}
   m_Center: {x: 1.5837822, y: -3.2044897, z: 0}
+--- !u!114 &5408830660260923527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986917682049788396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc0b5031704fff459dc558a3b9bb58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasks: []
+  onFloorStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &236555494535174031
 PrefabInstance:
   m_ObjectHideFlags: 0

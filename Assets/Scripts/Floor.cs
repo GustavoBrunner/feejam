@@ -27,7 +27,7 @@ public class Floor : MonoBehaviour
         else
         {
             Debug.Log("Todas as tasks deste andar foram concluídas!");
-            // Aqui você pode avisar o EventsController para passar para o próximo andar
+            
         }
     }
 
