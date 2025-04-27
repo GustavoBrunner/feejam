@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamRayController : MonoBehaviour
 {
-    public float interactionDistance = 3f;
+    public float interactionDistance = 1.5f;
     
     public Camera playerCamera;
 

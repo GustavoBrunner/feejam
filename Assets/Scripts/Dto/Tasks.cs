@@ -7,10 +7,35 @@ using UnityEngine.Events;
 [System.Serializable]
 public class Tasks
 {
-    public UnityEvent taskEvent;
-    public int Objective;
-    public void FireEvent()
+    public UnityEvent onTaskStart;
+    public UnityEvent onTaskComplete;
+
+    public int objectiveAmount = 1;
+    private int currentAmount = 0;
+
+    public bool IsCompleted => currentAmount >= objectiveAmount;
+
+    public void StartTask()
     {
-        taskEvent.Invoke();
+        currentAmount = 0;
+        onTaskStart?.Invoke();
     }
+
+    public void UpdateProgress(int amount)
+    {
+        currentAmount += amount;
+        Debug.Log($"Task progresso: {currentAmount}/{objectiveAmount}");
+
+        if (IsCompleted)
+        {
+            CompleteTask();
+        }
+    }
+
+    private void CompleteTask()
+    {
+        onTaskComplete?.Invoke();
+        Debug.Log("Task concluída!");
+    }
+
 }

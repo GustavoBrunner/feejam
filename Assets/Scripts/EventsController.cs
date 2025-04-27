@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class EventsController : MonoBehaviour
 {
-    int index = 0;
-    public List<Floor> Floors = new();
+    public List<Floor> floors = new();
+
+    private int currentFloorIndex = 0;
+    public Floor CurrentFloor { get; private set; }
+
+    private void Start()
+    {
+        StartFloor();
+    }
 
     public void StartFloor()
     {
-        Floors[index].StartEvent.Invoke();
+        if (currentFloorIndex < floors.Count)
+        {
+            CurrentFloor = floors[currentFloorIndex];
+            CurrentFloor.StartFloor();
+        }
     }
+
     public void NextFloor()
     {
-        index++;
-        Floors[index].StartEvent.Invoke();
+        currentFloorIndex++;
+        StartFloor();
     }
 }

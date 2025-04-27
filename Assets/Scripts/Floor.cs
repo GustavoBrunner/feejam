@@ -5,18 +5,42 @@ using UnityEngine.Events;
 
 public class Floor : MonoBehaviour
 {
-    int index = 0;
-    public List<Tasks> Tasks = new();
+    public List<Tasks> tasks = new();
+    public UnityEvent onFloorStart;
 
-    public UnityEvent StartEvent;
+    private int currentTaskIndex = 0;
+    public Tasks CurrentTask { get; private set; }
 
-    private void Awake()
+    public void StartFloor()
     {
-        
+        onFloorStart?.Invoke();
+        StartTask();
     }
-    public void FinishTask()
+
+    private void StartTask()
     {
-        Tasks[index].FireEvent();
-        index++;
+        if (currentTaskIndex < tasks.Count)
+        {
+            CurrentTask = tasks[currentTaskIndex];
+            CurrentTask.StartTask();
+        }
+        else
+        {
+            Debug.Log("Todas as tasks deste andar foram concluídas!");
+            // Aqui você pode avisar o EventsController para passar para o próximo andar
+        }
+    }
+
+    public void UpdateTaskProgress(int amount = 1)
+    {
+        if (CurrentTask == null) return;
+
+        CurrentTask.UpdateProgress(amount);
+
+        if (CurrentTask.IsCompleted)
+        {
+            currentTaskIndex++;
+            StartTask();
+        }
     }
 }

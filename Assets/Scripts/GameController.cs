@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private GameController _instance;
+    private static GameController _instance;
 
-    public GameController Instance { get => _instance; }
+    public static GameController Instance { get => _instance; }
 
     public EventsController Events { get; private set; }
     private void Awake()
@@ -29,5 +29,9 @@ public class GameController : MonoBehaviour
         {
             Events.StartFloor();
         }
+    }
+    public void TestEvent()
+    {
+        Debug.Log("Jogo iniciado");
     }
 }
